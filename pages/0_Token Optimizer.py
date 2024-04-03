@@ -2,14 +2,14 @@ import streamlit as st
 import math
 
 st.set_page_config(
-        page_title="Line Remover",
+        page_title="Token Optimizer",
         page_icon="📃",
         layout = 'wide'
     )
 # Make page content larger (zoom)
 st.markdown("""<style>body {zoom: 1.2;  /* Adjust this value as needed */}</style>""", unsafe_allow_html=True)
 
-st.title('Line Remover 📃')
+st.title('Token Optimizer 📃')
 
 st.sidebar.success("Select a tool above.")
 
