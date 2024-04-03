@@ -13,6 +13,10 @@ st.title('Token Optimizer 📃')
 
 st.sidebar.success("Select a tool above.")
 
+#on = st.sidebar.toggle("ZERO SPACE")
+
+on = st.toggle("ZERO SPACE")
+
 col1,col2 = st.columns(2)
 
 with col1:
@@ -25,10 +29,12 @@ According to OpenAI:
 1 token = ~4 characters''')
 
 with col2:
-    st.text_area(label = ':green[Here is your input with extra lines removed:]',placeholder = 'Output text here',value = "".join([s for s in t1.splitlines(True) if s.strip('\n')]),height = 500)
-    t2 = "".join([s for s in t1.splitlines(True) if s.strip('\n')])
+    if on:
+        t2 = st.text_area(label = ':green[Here is your input with extra lines removed:]',placeholder = 'Output text here',value = "".join([s for s in t1.splitlines(True) if s.strip()]),height = 500)
+    else:
+        t2 = st.text_area(label = ':green[Here is your input with extra lines removed:]',placeholder = 'Output text here',value = "".join([s for s in t1.splitlines(True) if s.strip('\n')]),height = 500)
     len2 = len(t2)
-    tok2 = len2/4
+    tok2 = len2/4    
     st.text(f"{len2} characters (~{math.ceil(tok2)} tokens)")
     st.text('''Token count above is a rough estimate. 
 According to OpenAI: 
