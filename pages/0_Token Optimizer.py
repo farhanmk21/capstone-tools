@@ -7,7 +7,7 @@ st.set_page_config(
         layout = 'wide'
     )
 # Make page content larger (zoom)
-st.markdown("""<style>body {zoom: 1.2;  /* Adjust this value as needed */}</style>""", unsafe_allow_html=True)
+st.markdown("""<style>body {zoom: 1.1;  /* Adjust this value as needed */}</style>""", unsafe_allow_html=True)
 
 st.title('Token Optimizer 📃')
 
@@ -15,7 +15,7 @@ st.sidebar.success("Select a tool above.")
 
 #on = st.sidebar.toggle("ZERO SPACE")
 
-on = st.toggle("ZERO SPACE")
+on = st.checkbox("ZERO SPACE")
 
 col1,col2 = st.columns(2)
 
