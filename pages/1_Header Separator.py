@@ -9,7 +9,7 @@ st.set_page_config(
 # Make page content larger (zoom)
 st.markdown("""<style>body {zoom: 1.1;  /* Adjust this value as needed */}</style>""", unsafe_allow_html=True)
 
-st.title('Header Separator 📃')
+st.title('Header Separator 🔍')
 
 st.sidebar.success("Select a tool above.")
 
