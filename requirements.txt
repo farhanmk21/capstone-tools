@@ -6,4 +6,4 @@ streamlit
 jsonlines
 pandas-llm
 pandasai
-yaml
+pyyaml
