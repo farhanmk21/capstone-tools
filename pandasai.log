@@ -1415,3 +1415,80 @@ Generate python code and return full updated code:
 2024-05-09 18:57:59 [INFO] Executing Step 3: CodeGenerator
 2024-05-09 18:57:59 [INFO] HTTP Request: POST https://prodkmnlpopenai.openai.azure.com//openai/deployments/GPT-35-16k/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 403 Forbidden"
 2024-05-09 18:57:59 [ERROR] Pipeline failed on step 3: Error code: 403 - {'error': {'code': '403', 'message': 'Access denied due to Virtual Network/Firewall rules.'}}
+2024-05-09 19:31:51 [INFO] Question: under HT header, how many placebo
+2024-05-09 19:31:51 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-05-09 19:31:51 [INFO] Prompt ID: df0a1d73-04d5-4381-869c-3f4f0fb0cc6c
+2024-05-09 19:31:51 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-09 19:31:51 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-09 19:31:51 [INFO] Executing Step 1: CacheLookup
+2024-05-09 19:31:51 [INFO] Executing Step 2: PromptGeneration
+2024-05-09 19:31:53 [INFO] Using prompt: <dataframe>
+dfs[0]:2763x37
+HT,age,raceth,nonwhite,smoking,drinkany,exercise,physact,globrat,poorfair,medcond,htnmeds,statins,diabetes,dmpills,insulin,weight,BMI,waist,WHR,glucose,weight1,BMI1,waist1,WHR1,glucose1,tchol,LDL,HDL,TG,tchol1,LDL1,HDL1,TG1,SBP,DBP,age10
+hormone therapy,78,Other,yes,yes,no,no,much less active,excellent,no,0,no,no,no,no,no,,21.96999931,121.0,,81,82.09999847,26.36000061,,,264.0,207.0,,,,,210.8000031,43.0,,160,45.0,4.400000095
+hormone therapy,47,White,yes,no,yes,yes,somewhat less active,,yes,1,yes,yes,yes,no,yes,67.90000153,39.56999969,81.80000305,0.98299998,191,,29.60000038,63.0,0.698000014,162.0,,75.0,106.0,123.0,338.0,,,133.0,178,97.0,6.699999809
+placebo,68,African American,no,yes,yes,no,somewhat more active,poor,,1,no,no,yes,yes,no,42.70000076,,,1.110999942,90,69.40000153,,89.09999847,1.044999957,,384.0,208.1999969,50.0,208.0,158.0,70.80000305,96.0,156.0,161,,7.300000191
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ under HT header, how many placebo
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-09 19:31:53 [INFO] Executing Step 3: CodeGenerator
+2024-05-09 19:31:56 [INFO] Prompt used:
+            None
+            
+2024-05-09 19:31:56 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Assuming 'dfs' is a list containing multiple dataframes
+
+# Count the number of rows with 'HT' header and 'placebo' value
+count_placebo = sum((df['HT'] == 'placebo').sum() for df in dfs)
+
+# Declare result variable
+result = {"type": "number", "value": count_placebo}
+            ```
+            
+2024-05-09 19:31:56 [INFO] Executing Step 4: CachePopulation
+2024-05-09 19:31:56 [INFO] Executing Step 5: CodeCleaning
+2024-05-09 19:31:56 [INFO] 
+Code running:
+```
+count_placebo = sum((df['HT'] == 'placebo').sum() for df in dfs)
+result = {'type': 'number', 'value': count_placebo}
+        ```
+2024-05-09 19:31:56 [INFO] Executing Step 6: CodeExecution
+2024-05-09 19:31:56 [INFO] Executing Step 7: ResultValidation
+2024-05-09 19:31:56 [INFO] Answer: {'type': 'number', 'value': 1383}
+2024-05-09 19:31:56 [INFO] Executing Step 8: ResultParsing

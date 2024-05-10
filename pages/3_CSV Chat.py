@@ -9,8 +9,11 @@ from pandasai import Agent
 
 os.environ['PANDASAI_API_KEY'] = '$2a$10$KR3qAskeiFOifibYwlxkneb6AAEObfxqRoBw7yl5rxr8ij3UEY.g6'
 
+os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
-
+openai_llm = OpenAI(
+    api_token="OPENAI_API_KEY",
+)
 
 def chat_with_csv(df, prompt):
     llm = OpenAI(api_token = openai_api_key)
@@ -48,6 +51,6 @@ if input_csv is not None:
         if input_text is not None:
             if st.button("Chat with CSV"):
                 st.info(f'Your query: {input_text}')
-                sdf1 = SmartDataframe(data)
+                sdf1 = SmartDataframe(data, config={"llm": openai_llm})
                 result = sdf1.chat(input_text)
                 st.success(result)
