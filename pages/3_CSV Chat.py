@@ -9,7 +9,7 @@ from pandasai import Agent
 
 os.environ['PANDASAI_API_KEY'] = '$2a$10$KR3qAskeiFOifibYwlxkneb6AAEObfxqRoBw7yl5rxr8ij3UEY.g6'
 
-os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
 openai_llm = OpenAI(
     api_token="OPENAI_API_KEY",
