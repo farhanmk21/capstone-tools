@@ -7,17 +7,8 @@ import os
 import pandasai
 from pandasai import Agent
 
-#os.environ['PANDASAI_API_KEY'] = '$2a$10$KR3qAskeiFOifibYwlxkneb6AAEObfxqRoBw7yl5rxr8ij3UEY.g6'
+os.environ['PANDASAI_API_KEY'] = '$2a$10$KR3qAskeiFOifibYwlxkneb6AAEObfxqRoBw7yl5rxr8ij3UEY.g6'
 
-os.environ['PANDASAI_API_KEY'] = 'sk-proj-YwNtDQkychYizOxF2fkDT3BlbkFJKubmHjpqZTvMlfMtog67'
-
-
-azure_llm = AzureOpenAI(
-    api_token="e8c6e6af2bff436b8adb55f7d93edcd8",
-    azure_endpoint="https://prodkmnlpopenai.openai.azure.com/",
-    api_version="2024-04-01-preview",
-    deployment_name="GPT-35-16k"
-)
 
 
 
@@ -57,6 +48,6 @@ if input_csv is not None:
         if input_text is not None:
             if st.button("Chat with CSV"):
                 st.info(f'Your query: {input_text}')
-                sdf1 = SmartDataframe(data, config={"llm": azure_llm})
+                sdf1 = SmartDataframe(data)
                 result = sdf1.chat(input_text)
                 st.success(result)
