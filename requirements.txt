@@ -5,3 +5,4 @@ pydeck
 streamlit
 jsonlines
 pandas-llm
+pandasai
