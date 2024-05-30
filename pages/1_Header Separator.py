@@ -21,7 +21,7 @@ def separate_text_by_headers(text):
 
     for line in lines:
         if line.strip() != "":
-            if line.endswith("::"):
+            if line.endswith("::") or line.endswith(":: "):
                 # If the line ends with "::", it's a header
                 if current_header is not None:
                     # If there's already text under the previous header, save it
